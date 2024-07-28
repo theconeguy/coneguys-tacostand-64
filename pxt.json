@@ -1,0 +1,72 @@
+{
+    "name": "Coneguy's Tacostand 64 (0.1.0)",
+    "version": "0.1.0",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "Custom Keybind Extension": "github:Brohann3214/custom-keybind-extension#ce1cb5acda5cd438592e38da4aaab10b73b46c64",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.1.0",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "animation": "*",
+        "sprite-scaling": "*",
+        "palette": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
+        "arcade-platformer": "github:microsoft/arcade-platformer#v0.0.9",
+        "grafxkid-tiles": "github:riknoll/grafxkid-tiles#v2.0.1",
+        "Tile Animator": "github:LautaroCeballos/Tiles-Animator#2e87fd85737dcf61210ea9004eac2167c1e59fb6",
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.2",
+        "arcade-screen-transitions": "github:riknoll/arcade-screen-transitions#v0.1.0",
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1",
+        "BetterArrays": "github:sargedev/betterarrays#v1.2.1",
+        "show-system-menu-block": "pub:17177-58708-11177-59728",
+        "Custom Systemmenu Options": "github:meeeeeeeep1/custom-systemmenu-options#55a5f850d6debf3fa843202a6cd96b5004f8eb23"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.51",
+        "tag": "v1.12.51",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/eb9fd884260f64c934fb51355e36f8c76272b6b4",
+        "target": "1.12.53",
+        "pxt": "8.5.63",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj",
+    "palette": [
+        "#000000",
+        "#FFFFFF",
+        "#E03000",
+        "#F8A0F8",
+        "#F89068",
+        "#F8E080",
+        "#249CA3",
+        "#58C000",
+        "#2828C0",
+        "#48A0F8",
+        "#A850F8",
+        "#A878A8",
+        "#5C406c",
+        "#AB6727",
+        "#A14726",
+        "#000000"
+    ]
+}
