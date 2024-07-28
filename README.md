@@ -1,5 +1,4 @@
  Here are the controls, for those who need them:
-
  
  Arrow Keys - Move
  
@@ -15,9 +14,9 @@
  
  Enter - Serve Taco & Warp to Tacostand (if you're not already in the tacostand)
 
+---------------------------------------------------------------------------------
 
  Combo Moves:
-
 
  A + A - Double Jump (at Mach 3)
  
