@@ -301,7 +301,7 @@ sprites.onOverlap(SpriteKind.Customer, SpriteKind.elmo, function (sprite, otherS
                             }
                         }
                         if (sprites.allOfKind(SpriteKind.Customer).length <= 0) {
-                            list.push("hyper")
+                            hyperCount = 0
                             spawnCustomers()
                         }
                     })
@@ -313,6 +313,9 @@ sprites.onOverlap(SpriteKind.Customer, SpriteKind.elmo, function (sprite, otherS
                     tacoimagetransition()
                     pause(10)
                     gotolevel()
+                    if (sprites.readDataString(sprite, "type") == "hyper") {
+                        hyperTimer()
+                    }
                 }
             }
         }
@@ -2299,6 +2302,10 @@ controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
     if (level != "tacostand") {
         tacoimagetransition()
         gotoStand()
+        sprites.destroy(textSprite5)
+        if (!(hyperHATESyou)) {
+        	
+        }
     }
 })
 function set_move () {
@@ -2793,48 +2800,70 @@ sprites.onCreated(SpriteKind.Customer, function (sprite) {
         true
         )
     } else if (sprites.readDataString(sprite, "type") == "hyper") {
-        sprite.setImage(img`
-            .......ffff.........
-            ......f555f.fff.....
-            .....f5fff.f55f.....
-            .....f5ffffff5f.ff..
-            ....f5fffffff5ff5f..
-            ....f5fffffff5ff5f..
-            .....f5ffffbffff5f..
-            ....ffffffffbff5f...
-            ....f11f1f111ff5f...
-            ....fb111111bff5f...
-            .....f11f11bffff....
-            ....f1ff1fff1ff.....
-            ...f1111111111f.....
-            ..f1111111ff11bf....
-            .f11bbbfff11f11f....
-            .fbbfff.f1111f1f....
-            .fff.....ff1111f....
-            ...........fffff....
-            ....................
-            ..........ff........
-            ..........f5fff.....
-            ..........ff55f.....
-            .........fcfffff....
-            .........fcfffff....
-            ......ffffcffffffff.
-            .....fbffcfffffbf11f
-            ....fb11fcffffb11fff
-            ....fff1ffcccfff11bf
-            ....fbf111ffffbf111f
-            ....f11b1f...f11b1f.
-            .....ffff.....ffff..
-            ....................
-            ....................
-            ....................
-            .......fff...fff....
-            .....ff55f.ff55f....
-            ...ff55ffff55fff....
-            ...fffffffffffff....
-            `)
-        sprite.y += -22
-        arrays.removeAll(list, "hyper")
+        if (!(hyperCount == 1)) {
+            sprite.setImage(img`
+                .......ffff.........
+                ......f555f.fff.....
+                .....f5fff.f55f.....
+                .....f5ffffff5f.ff..
+                ....f5fffffff5ff5f..
+                ....f5fffffff5ff5f..
+                .....f5ffffbffff5f..
+                ....ffffffffbff5f...
+                ....f11f1f111ff5f...
+                ....fb111111bff5f...
+                .....f11f11bffff....
+                ....f1ff1fff1ff.....
+                ...f1111111111f.....
+                ..f1111111ff11bf....
+                .f11bbbfff11f11f....
+                .fbbfff.f1111f1f....
+                .fff.....ff1111f....
+                ...........fffff....
+                ....................
+                ..........ff........
+                ..........f5fff.....
+                ..........ff55f.....
+                .........fcfffff....
+                .........fcfffff....
+                ......ffffcffffffff.
+                .....fbffcfffffbf11f
+                ....fb11fcffffb11fff
+                ....fff1ffcccfff11bf
+                ....fbf111ffffbf111f
+                ....f11b1f...f11b1f.
+                .....ffff.....ffff..
+                ....................
+                ....................
+                ....................
+                .......fff...fff....
+                .....ff55f.ff55f....
+                ...ff55ffff55fff....
+                ...fffffffffffff....
+                `)
+            sprite.y += -22
+            hyperCount = 1
+        } else {
+            sprite.setImage(img`
+                . . . f 5 f . . . . . . . . . . 
+                . . . . f 5 f . . . . . . . . . 
+                . . . . . f f . . . . . . . . . 
+                . . . . f f f f f . . . . . . . 
+                . . . f 5 5 5 5 5 f . . . . . . 
+                . . f 5 1 5 1 5 5 5 f . . . . . 
+                . . f 4 f 5 f 5 5 5 5 f . . . . 
+                . f 4 f f 4 f 5 5 5 4 f f f f . 
+                f 4 4 4 4 f 5 5 5 4 f f 4 4 4 f 
+                . f 4 4 4 4 f 5 5 f 5 5 5 4 f f 
+                . . f f f f 5 5 4 5 5 5 5 f 4 f 
+                . f 5 5 5 5 5 5 f 5 5 4 f 4 4 f 
+                . f 5 5 5 5 5 5 5 f f f 4 4 f . 
+                . f 4 5 5 5 5 5 4 4 4 4 4 f . . 
+                . . f 4 5 5 5 4 4 4 4 4 f . . . 
+                . . . f f f f f f f f f . . . . 
+                `)
+            sprites.setDataString(sprite, "type", "duckle")
+        }
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`playerspawn_beta`, function (sprite, location) {
@@ -4786,7 +4815,7 @@ function startthegame () {
         3333333333333333
         3333333333333333
         `, SpriteKind.elmo)
-    tiles.placeOnRandomTile(mySprite8, sprites.vehicle.roadTurn3)
+    tiles.placeOnRandomTile(mySprite8, assets.tile`myTile61`)
     tiles.placeOnRandomTile(mySprite, assets.tile`playerspawn_beta`)
     tiles.placeOnRandomTile(mySprite, assets.tile`playerspawn_beta`)
     tiles.placeOnRandomTile(mySprite4, assets.tile`playerspawn_beta`)
@@ -9302,6 +9331,7 @@ let mySprite14: Sprite = null
 let radiod = 0
 let breakdanceBuffer = 0
 let getstarAnim = false
+let list: string[] = []
 let ingredientList_level_4: string[] = []
 let ingredientList_level_3: string[] = []
 let ingredientList_level_2: string[] = []
@@ -9330,7 +9360,6 @@ let kungfud_on_ground = 0
 let player_tauntstoredsprite = 0
 let player_tauntstoredmovespeed = 0
 let isTimer = false
-let textSprite5: TextSprite = null
 let timer2 = 0
 let bouncestreak = 0
 let jumpstreak = 0
@@ -9342,6 +9371,7 @@ let mySprite3: Sprite = null
 let room = 0
 let player_tauntstoredvsp = 0
 let player_tauntstoredstate = 0
+let textSprite5: TextSprite = null
 let isDiving = false
 let maxDives = 0
 let player_ispepperman_Pixel = false
@@ -9365,7 +9395,7 @@ let player_movespeed = 0
 let playerframecounter = 0
 let panic = false
 let hyperHATESyou = false
-let list: string[] = []
+let hyperCount = 0
 let customerOrder_their_taco_order: string[] = []
 let requestedIngredient4 = ""
 let requestedIngredient3 = ""
