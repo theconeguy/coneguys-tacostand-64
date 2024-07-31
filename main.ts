@@ -2303,6 +2303,7 @@ controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
         tacoimagetransition()
         gotoStand()
         sprites.destroy(textSprite5)
+        isTimer = false
         if (!(hyperHATESyou)) {
         	
         }
@@ -9359,7 +9360,6 @@ let doublejumped = false
 let kungfud_on_ground = 0
 let player_tauntstoredsprite = 0
 let player_tauntstoredmovespeed = 0
-let isTimer = false
 let timer2 = 0
 let bouncestreak = 0
 let jumpstreak = 0
@@ -9371,6 +9371,7 @@ let mySprite3: Sprite = null
 let room = 0
 let player_tauntstoredvsp = 0
 let player_tauntstoredstate = 0
+let isTimer = false
 let textSprite5: TextSprite = null
 let isDiving = false
 let maxDives = 0
